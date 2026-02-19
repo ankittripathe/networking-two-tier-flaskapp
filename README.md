@@ -179,3 +179,29 @@ SELECT * FROM messages;
 
 🔹 This shows all rows stored inside the messages table.
 ```
+
+#### 7️⃣ Restart Docker Container
+
+```bash
+docker restart mysql-docker
+
+🔹 Useful if MySQL gets stuck or you changed environment variables.
+```
+
+#### 8️⃣ Stop & Remove Container
+
+```bash
+docker stop mysql-docker && docker rm mysql-docker
+
+🔹 Stops and deletes the container
+(Your data will be lost if you're not using a volume!)
+```
+
+#### 9️ Refresh Frontend (Flask)
+
+```bash
+# If the backend cannot connect to MySQL, you might see:
+  OperationalError
+```
+
+#### 🔟
