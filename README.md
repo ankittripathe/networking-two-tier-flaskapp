@@ -14,13 +14,13 @@ Before you begin, make sure you have the following installed:
 ##### 1️⃣ Clone this repository (if you haven't already)
 
 ```bash
-git clone https://github.com/ankittripathe/networking-two-tier-flaskapp.git
+git clone https://github.com/ankittripathe/two-tier-flaskapp-docker-network.git
 ```
 
 ##### 2️⃣ Navigate to the project directory
 
 ```bash
-cd networking-two-tier-flaskapp
+cd two-tier-flaskapp-docker-network
 ```
 
 ##### 3️⃣ MySQL Container Setup
@@ -204,4 +204,5 @@ docker stop mysql-docker && docker rm mysql-docker
   OperationalError
 ```
 
-#### 🔟
+#### 🔟 Here term volume comes in.
+- we will study in seperate project 
