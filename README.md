@@ -1,15 +1,15 @@
-# 🔹 Flask App with MySQL Docker Setup
+# ✅ Flask App with MySQL Docker Setup
 
 A simple Flask app that interacts with a MySQL database. The app allows users to submit messages, which are then stored in the database and displayed on the frontend.
 
-## 🔹 Prerequisites
+## ✅ Prerequisites
 
 Before you begin, make sure you have the following installed:
 
 - Docker
 - Git (optional, for cloning the repository)
 
-## 🔹 Setup
+## ✅ Setup
 
 ##### 1️⃣ Clone this repository (if you haven't already)
 
@@ -59,7 +59,7 @@ docker run -d \
 | 🐬 MySQL Container   | `MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER`, `MYSQL_PASSWORD` |
 | 🚀 Backend Container | `MYSQL_HOST`, `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_DB`                |
 
-## 🔹 To run this two-tier application using without docker-compose
+## ✅ To run this two-tier application using without docker-compose
 
 ##### 1️⃣ First create a docker image from Dockerfile
 
@@ -80,6 +80,9 @@ docker network create custom-NetworkName
 
 # Remove network
  docker network rm network-Name
+
+# shows complete details about Docker network.
+ docker network inspect network_name
 ```
 
 ##### 3️⃣ Attach both the containers in the same network, so that they can communicate with each other
@@ -110,16 +113,74 @@ docker run -d \
     flaskapp:latest
 ```
 
-## 🔹 Notes
 
+### ✅ Steps to Check Whether Data Is Stored in MySQL Database
+
+##### 1️⃣ Check Docker Container Logs
+Use this to verify if MySQL or backend container has any errors.
+
+```bash
+docker logs container_Name/Id
+```
+
+##### 2️⃣ Verify Both Containers Are in the Same Network
+This ensures backend can connect to MySQL.
+
+```bash
+docker network inspect network_Name
+```
+
+##### 3️⃣ Login to MySQL Container
+Use this command to enter MySQL shell.
+
+```bash
+docker exec -it mysql-docker
+
+🔹 Now you are inside the container.
+mysql -u root -p
+
+Then it will ask:
+Enter password:
+root
+```
+##### 4️⃣ Show All Databases
+
+```bash
+SHOW DATABASES;
+
+You should see something like:
++--------------------+
+| Database           |
++--------------------+
+| devops             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+🔹 This confirms your devops database is created.
+```
+
+#### 5️⃣ Select Your Database
+```bash
+USE devops;
+
+🔹 This switches to your project database.
+```
+
+#### 6️⃣ View All Messages (Check Table Data)
+```bash
+SELECT * FROM messages;
+
+🔹 This shows all rows stored inside the messages table.
+```
+
+
+#### ✅ Notes
 - Make sure to replace placeholders.
   `your_username`
   `your_password`
   `your_database`
   with your actual MySQL configuration.
-
-- If you encounter issues, check Docker logs and error messages for troubleshooting.
-
-```
-
-```
+  ```
+  ````
