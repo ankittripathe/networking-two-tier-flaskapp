@@ -113,10 +113,10 @@ docker run -d \
     flaskapp:latest
 ```
 
-
 ### ✅ Steps to Check Whether Data Is Stored in MySQL Database
 
 ##### 1️⃣ Check Docker Container Logs
+
 Use this to verify if MySQL or backend container has any errors.
 
 ```bash
@@ -124,6 +124,7 @@ docker logs container_Name/Id
 ```
 
 ##### 2️⃣ Verify Both Containers Are in the Same Network
+
 This ensures backend can connect to MySQL.
 
 ```bash
@@ -131,6 +132,7 @@ docker network inspect network_Name
 ```
 
 ##### 3️⃣ Login to MySQL Container
+
 Use this command to enter MySQL shell.
 
 ```bash
@@ -143,6 +145,7 @@ Then it will ask:
 Enter password:
 root
 ```
+
 ##### 4️⃣ Show All Databases
 
 ```bash
@@ -162,6 +165,7 @@ You should see something like:
 ```
 
 #### 5️⃣ Select Your Database
+
 ```bash
 USE devops;
 
@@ -169,18 +173,9 @@ USE devops;
 ```
 
 #### 6️⃣ View All Messages (Check Table Data)
+
 ```bash
 SELECT * FROM messages;
 
 🔹 This shows all rows stored inside the messages table.
 ```
-
-
-#### ✅ Notes
-- Make sure to replace placeholders.
-  `your_username`
-  `your_password`
-  `your_database`
-  with your actual MySQL configuration.
-  ```
-  ````
